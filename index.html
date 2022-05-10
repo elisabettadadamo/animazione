@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" style.css">
+    <title>Animazione persona</title>
+</head>
+<body>
+    
+    <div class="box">
+        <div id="capelli"></div>
+       <div id="corpo">
+       <span></span>
+       </div>
+       <div id=" testa">
+       <div id="collo"></div>
+       <div id="faccia">
+        <div id="occhi">
+            <span class="occhio"><i></i></span>
+            <span class="occhio"><i></i></span>
+        </div>
+        <div id="naso"></div>
+        <div id="bocca"></div>
+       </div>
+       </div>
+       
+       
+      
+
+
+
+
+    </div>
+    <script>
+        document.querySelector('body').addEventListener('mousemove', eyeball);
+       function eyeball(){
+           let eye = document.querySelectorAll('.occhio i');
+           eye.forEach(function(eye){
+              let x = (eye.getBoundingClientRect().left) +(eye.clientWidth / 2) ;
+              let y = (eye.getBoundingClientRect().top) +(eye.clientWidth / 2) ;
+              let radian = Math.atan2(event.pageX - x, event.pageY - y);
+              let rot = (radian * (180 / Math.PI) * -1) + 270;
+              eye.style.transform = "rotate(" + rot +"deg)";
+           })
+       }
+
+
+
+    </script>
+</body>
+</html>
